@@ -746,7 +746,7 @@ static bool buffer_request(dap_request_t *req)
 
     if (TRANSFER_TYPE_READ == req->type || TRANSFER_TYPE_WRITE_READ == req->type)
     {
-      dap_buf[dap_buf_size++] = SWD_AP_DRW | DAP_TRANSFER_RnW;
+      dap_buf[dap_buf_size++] = (uint8_t)((uint8_t)SWD_AP_DRW | (uint8_t)DAP_TRANSFER_RnW);
       dap_ops[dap_ops_size++] = OP_READ;
       dap_response_size += sizeof(uint32_t);
     }
