@@ -77,6 +77,8 @@ static target_options_t g_target_options =
   .offset       = -1,
   .size         = -1,
   .fuse_cmd     = NULL,
+  .file_size    = -1,
+  .file_data    = NULL
 };
 
 /*- Implementations ---------------------------------------------------------*/
@@ -474,7 +476,7 @@ static void parse_command_line(int argc, char **argv)
 //-----------------------------------------------------------------------------
 int main(int argc, char **argv)
 {
-  debugger_t debuggers[MAX_DEBUGGERS] = {0};
+  debugger_t debuggers[MAX_DEBUGGERS] = {};
   int n_debuggers = 0;
   int debugger = -1;
   target_ops_t *target_ops;

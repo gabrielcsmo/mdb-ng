@@ -32,7 +32,7 @@ static int g_debugger_fd = -1;
 static char *get_string(int fd, int index)
 {
   struct usbdevfs_ctrltransfer ctrl;
-  uint16_t buf[128] = { 0 };
+  uint16_t buf[128] = {};
 
   ctrl.bRequestType = USB_RECIP_DEVICE | USB_TYPE_STANDARD | USB_DIR_IN;
   ctrl.bRequest     = USB_REQ_GET_DESCRIPTOR;
@@ -283,7 +283,7 @@ int dbg_get_packet_size(void)
 int dbg_dap_cmd(uint8_t *data, int resp_size, int req_size)
 {
   uint8_t cmd = data[0];
-  struct usbdevfs_urb urb = { 0 };
+  struct usbdevfs_urb urb = {};
   struct usbdevfs_urb *purb = NULL;
   uint8_t buf[DBG_MAX_EP_SIZE];
   int res;

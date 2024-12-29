@@ -39,7 +39,7 @@ else
   endif
 endif
 
-CWARNS = -Wno-write-strings -Wno-deprecated-enum-enum-conversion -Wno-missing-field-initializers
+CWARNS = -Wno-write-strings -Wno-deprecated-enum-enum-conversion
 CFLAGS += -W -Wall -Wextra -O3 -std=c++20 -fpermissive $(CWARNS)
 #CFLAGS += -fno-diagnostics-show-caret
 
