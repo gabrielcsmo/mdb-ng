@@ -4,10 +4,10 @@
 // All rights reserved.
 
 /*- Includes ----------------------------------------------------------------*/
-#include <stdlib.h>
-#include <stdint.h>
-#include <stdbool.h>
-#include <string.h>
+#include <cstdlib>
+#include <cstdint>
+#include <cstdbool>
+#include <cstring>
 #include "target.h"
 #include "edbg.h"
 #include "dap.h"

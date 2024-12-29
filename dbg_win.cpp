@@ -2,8 +2,8 @@
 // Copyright (c) 2013-2024, Alex Taradov <alex@taradov.com>. All rights reserved.
 
 /*- Includes ----------------------------------------------------------------*/
-#include <stdint.h>
-#include <stdbool.h>
+#include <cstdint>
+#include <cstdbool>
 #include <windows.h>
 #include <setupapi.h>
 #include <devguid.h>

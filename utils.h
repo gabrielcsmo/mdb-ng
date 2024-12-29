@@ -5,7 +5,7 @@
 #define _UTILS_H_
 
 /*- Includes ----------------------------------------------------------------*/
-#include <stdint.h>
+#include <cstdint>
 
 /*- Prototypes --------------------------------------------------------------*/
 void sha256(uint8_t *data, int size, uint8_t *hash);

@@ -2,11 +2,11 @@
 // Copyright (c) 2022, Alex Taradov <alex@taradov.com>. All rights reserved.
 
 /*- Includes ----------------------------------------------------------------*/
-#include <string.h>
+#include <cstring>
 #include <unistd.h>
-#include <stdlib.h>
-#include <stdint.h>
-#include <stdbool.h>
+#include <cstdlib>
+#include <cstdint>
+#include <cstdbool>
 #include <wchar.h>
 #include <IOKit/IOKitLib.h>
 #include <IOKit/hid/IOHIDLib.h>

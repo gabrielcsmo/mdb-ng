@@ -2,9 +2,9 @@
 // Copyright (c) 2022, Alex Taradov <alex@taradov.com>. All rights reserved.
 
 /*- Includes ----------------------------------------------------------------*/
-#include <string.h>
-#include <stdlib.h>
-#include <stdint.h>
+#include <cstring>
+#include <cstdlib>
+#include <cstdint>
 #include "utils.h"
 
 // Note: SHA-256 is a direct naive implementation of the FIPS PUB 180-4

@@ -3,10 +3,10 @@
 
 /*- Includes ----------------------------------------------------------------*/
 #include <unistd.h>
-#include <stdlib.h>
-#include <stdint.h>
-#include <stdbool.h>
-#include <string.h>
+#include <cstdlib>
+#include <cstdint>
+#include <cstdbool>
+#include <cstring>
 #include "target.h"
 #include "utils.h"
 #include "edbg.h"

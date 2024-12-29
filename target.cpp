@@ -2,10 +2,10 @@
 // Copyright (c) 2013-2022, Alex Taradov <alex@taradov.com>. All rights reserved.
 
 /*- Includes ----------------------------------------------------------------*/
-#include <string.h>
-#include <stdlib.h>
-#include <stdint.h>
-#include <stdbool.h>
+#include <cstring>
+#include <cstdlib>
+#include <cstdint>
+#include <cstdbool>
 #include "target.h"
 #include "edbg.h"
 #include "dap.h"
@@ -29,12 +29,6 @@ extern target_ops_t target_atmel_cm4_ops;
 extern target_ops_t target_atmel_cm7_ops;
 extern target_ops_t target_atmel_cm4v2_ops;
 extern target_ops_t target_mchp_cm23_ops;
-extern target_ops_t target_st_stm32g0_ops;
-extern target_ops_t target_gd_gd32f4xx_ops;
-extern target_ops_t target_nu_m480_ops;
-extern target_ops_t target_lattice_lcmxo2_ops;
-extern target_ops_t target_rpi_rp2040_ops;
-extern target_ops_t target_puya_py32f0_ops;
 
 static target_t targets[] =
 {
@@ -44,12 +38,6 @@ static target_t targets[] =
   { "atmel_cm7",	"Atmel SAM E7x/S7x/V7x",				&target_atmel_cm7_ops },
   { "atmel_cm4v2",	"Atmel SAM D5x/E5x",					&target_atmel_cm4v2_ops },
   { "mchp_cm23",	"Microchip SAM L10/L11, PIC32CM LE00/LS00/LS60",	&target_mchp_cm23_ops },
-  { NULL,		"STMicroelectronics STM32G0",				&target_st_stm32g0_ops },
-  { NULL,		"GigaDevice GD32F4xx",					&target_gd_gd32f4xx_ops },
-  { NULL,		"Nuvoton M480",						&target_nu_m480_ops },
-  { NULL,		"Lattice LCMXO2",					&target_lattice_lcmxo2_ops },
-  { NULL,		"Raspberry Pi RP2040 (external flash)", 		&target_rpi_rp2040_ops },
-  { NULL,		"Puya PY32F0xx", 					&target_puya_py32f0_ops },
 };
 
 /*- Implementations ---------------------------------------------------------*/

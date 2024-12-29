@@ -2,12 +2,12 @@
 // Copyright (c) 2013-2024, Alex Taradov <alex@taradov.com>. All rights reserved.
 
 /*- Includes ----------------------------------------------------------------*/
-#include <time.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdint.h>
-#include <stdbool.h>
-#include <string.h>
+#include <ctime>
+#include <cstdio>
+#include <cstdlib>
+#include <cstdint>
+#include <cstdbool>
+#include <cstring>
 #include <unistd.h>
 #include <getopt.h>
 #include <errno.h>
@@ -82,7 +82,7 @@ static target_options_t g_target_options =
 /*- Implementations ---------------------------------------------------------*/
 
 //-----------------------------------------------------------------------------
-void verbose(char *fmt, ...)
+void verbose(const char *fmt, ...)
 {
   va_list args;
 
@@ -97,7 +97,7 @@ void verbose(char *fmt, ...)
 }
 
 //-----------------------------------------------------------------------------
-void message(char *fmt, ...)
+void message(const char *fmt, ...)
 {
   va_list args;
 
@@ -109,7 +109,7 @@ void message(char *fmt, ...)
 }
 
 //-----------------------------------------------------------------------------
-void warning(char *fmt, ...)
+void warning(const char *fmt, ...)
 {
   va_list args;
 
@@ -121,7 +121,7 @@ void warning(char *fmt, ...)
 }
 
 //-----------------------------------------------------------------------------
-void check(bool cond, char *fmt, ...)
+void check(bool cond, const char *fmt, ...)
 {
   if (cond)
     return;
@@ -138,7 +138,7 @@ void check(bool cond, char *fmt, ...)
 }
 
 //-----------------------------------------------------------------------------
-void error_exit(char *fmt, ...)
+void error_exit(const char *fmt, ...)
 {
   va_list args;
 

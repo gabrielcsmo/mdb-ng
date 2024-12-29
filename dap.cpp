@@ -2,11 +2,11 @@
 // Copyright (c) 2013-2024, Alex Taradov <alex@taradov.com>. All rights reserved.
 
 /*- Includes ----------------------------------------------------------------*/
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdint.h>
-#include <stdbool.h>
-#include <string.h>
+#include <cstdio>
+#include <cstdlib>
+#include <cstdint>
+#include <cstdbool>
+#include <cstring>
 #include "edbg.h"
 #include "dap.h"
 #include "dbg.h"

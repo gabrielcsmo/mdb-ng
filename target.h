@@ -5,8 +5,8 @@
 #define _TARGET_H_
 
 /*- Includes ----------------------------------------------------------------*/
-#include <stdint.h>
-#include <stdbool.h>
+#include <cstdint>
+#include <cstdbool>
 #include <stdalign.h>
 
 /*- Types -------------------------------------------------------------------*/

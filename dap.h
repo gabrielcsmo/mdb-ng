@@ -5,8 +5,8 @@
 #define _DAP_H_
 
 /*- Includes ----------------------------------------------------------------*/
-#include <stdint.h>
-#include <stdbool.h>
+#include <cstdint>
+#include <cstdbool>
 
 /*- Definitions -------------------------------------------------------------*/
 enum

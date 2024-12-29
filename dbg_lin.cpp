@@ -2,11 +2,11 @@
 // Copyright (c) 2013-2024, Alex Taradov <alex@taradov.com>. All rights reserved.
 
 /*- Includes ----------------------------------------------------------------*/
-#include <string.h>
+#include <cstring>
 #include <unistd.h>
-#include <stdlib.h>
-#include <stdint.h>
-#include <stdbool.h>
+#include <cstdlib>
+#include <cstdint>
+#include <cstdbool>
 #include <errno.h>
 #include <fcntl.h>
 #include <ctype.h>

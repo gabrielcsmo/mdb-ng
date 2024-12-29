@@ -6,8 +6,8 @@
 
 /*- Includes ----------------------------------------------------------------*/
 #include <stddef.h>
-#include <stdint.h>
-#include <stdbool.h>
+#include <cstdint>
+#include <cstdbool>
 
 /*- Definitions -------------------------------------------------------------*/
 #define DBG_MAX_EP_SIZE    1024

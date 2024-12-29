@@ -7,18 +7,18 @@
 /*- Includes ----------------------------------------------------------------*/
 #include <assert.h>
 #include <stdarg.h>
-#include <stdint.h>
-#include <stdbool.h>
+#include <cstdint>
+#include <cstdbool>
 
 /*- Definitions -------------------------------------------------------------*/
 #define ARRAY_SIZE(x) ((int)(sizeof(x) / sizeof(0[x])))
 
 /*- Prototypes --------------------------------------------------------------*/
-void verbose(char *fmt, ...);
-void message(char *fmt, ...);
-void warning(char *fmt, ...);
-void check(bool cond, char *fmt, ...);
-void error_exit(char *fmt, ...);
+void verbose(const char *fmt, ...);
+void message(const char *fmt, ...);
+void warning(const char *fmt, ...);
+void check(bool cond, const char *fmt, ...);
+void error_exit(const char *fmt, ...);
 void sleep_ms(int ms);
 void perror_exit(char *text);
 int round_up(int value, int multiple);
