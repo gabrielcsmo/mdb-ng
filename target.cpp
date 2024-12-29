@@ -141,7 +141,7 @@ void target_check_options(target_options_t *options, int size, int align)
 
   if (options->program || options->verify)
   {
-    options->file_data = buf_alloc(options->size);
+    options->file_data = (uint8_t *)buf_alloc(options->size);
     options->file_size = load_file(options->name, options->file_data, options->size);
     memset(&options->file_data[options->file_size], 0xff, options->size - options->file_size);
 
@@ -149,7 +149,7 @@ void target_check_options(target_options_t *options, int size, int align)
   }
   else if (options->read)
   {
-    options->file_data = buf_alloc(options->size);
+    options->file_data = (uint8_t *)buf_alloc(options->size);
     options->file_size = options->size;
   }
 }
@@ -215,7 +215,7 @@ static char *get_file_name(char **str)
 
   size = end - *str + 1;
 
-  res = buf_alloc(size);
+  res = (char *)buf_alloc(size);
 
   memcpy(res, *str, size - 1);
 

@@ -367,7 +367,7 @@ static void target_verify(void)
   uint32_t size = target_options.file_size;
   int row = 0;
 
-  bufb = buf_alloc(FLASH_ROW_SIZE);
+  bufb = (uint8_t *)buf_alloc(FLASH_ROW_SIZE);
 
   while (size)
   {

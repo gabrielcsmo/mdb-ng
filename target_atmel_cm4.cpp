@@ -259,7 +259,7 @@ static void target_verify(void)
   uint8_t *bufa = target_options.file_data;
   uint32_t size = target_options.file_size;
 
-  bufb = buf_alloc(FLASH_PAGE_SIZE);
+  bufb = (uint8_t *)buf_alloc(FLASH_PAGE_SIZE);
 
   while (size)
   {

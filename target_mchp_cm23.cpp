@@ -361,7 +361,7 @@ static void target_verify(void)
   if ((dap_read_byte(DSU_STATUSB) & 0x03) != 0x02)
     error_exit("device is locked (DAL is not 2), unable to verify");
 
-  bufb = buf_alloc(FLASH_ROW_SIZE);
+  bufb = (uint8_t *)buf_alloc(FLASH_ROW_SIZE);
 
   while (size)
   {

@@ -54,7 +54,7 @@ static char *get_string(int fd, int index)
 
   if (len > 0)
   {
-    str = buf_alloc(len + 1);
+    str = (char *)buf_alloc(len + 1);
 
     for (int i = 0; i < len; i++)
       str[i] = isprint(buf[i+1]) ? buf[i+1] : '?';
@@ -91,7 +91,7 @@ static void parse_descriptors(debugger_t *debugger, int fd, uint8_t *desc, int s
 {
   memset(debugger, 0, sizeof(debugger_t));
 
-  struct usb_device_descriptor *device = find_descriptor(&desc, &size, USB_DT_DEVICE, USB_DT_DEVICE_SIZE);
+  struct usb_device_descriptor *device = (struct usb_device_descriptor *)find_descriptor(&desc, &size, USB_DT_DEVICE, USB_DT_DEVICE_SIZE);
   if (!device)
     return;
 
@@ -103,7 +103,7 @@ static void parse_descriptors(debugger_t *debugger, int fd, uint8_t *desc, int s
 
   while (1)
   {
-    struct usb_interface_descriptor *interface = find_descriptor(&desc, &size, USB_DT_INTERFACE, USB_DT_INTERFACE_SIZE);
+    struct usb_interface_descriptor *interface = (struct usb_interface_descriptor *)find_descriptor(&desc, &size, USB_DT_INTERFACE, USB_DT_INTERFACE_SIZE);
 
     if (!interface)
       break;
@@ -117,8 +117,8 @@ static void parse_descriptors(debugger_t *debugger, int fd, uint8_t *desc, int s
     if (!is_dap_str(debugger->product) && !is_dap_str(get_string(fd, interface->iInterface)))
       continue;
 
-    struct usb_endpoint_descriptor *ep0 = find_descriptor(&desc, &size, USB_DT_ENDPOINT, USB_DT_ENDPOINT_SIZE);
-    struct usb_endpoint_descriptor *ep1 = find_descriptor(&desc, &size, USB_DT_ENDPOINT, USB_DT_ENDPOINT_SIZE);
+    struct usb_endpoint_descriptor *ep0 = (struct usb_endpoint_descriptor *)find_descriptor(&desc, &size, USB_DT_ENDPOINT, USB_DT_ENDPOINT_SIZE);
+    struct usb_endpoint_descriptor *ep1 = (struct usb_endpoint_descriptor *)find_descriptor(&desc, &size, USB_DT_ENDPOINT, USB_DT_ENDPOINT_SIZE);
 
     if (!ep0 || !ep1)
       break;
