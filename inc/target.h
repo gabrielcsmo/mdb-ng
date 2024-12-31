@@ -27,6 +27,7 @@ typedef struct
   // For target use only
   int          file_size;
   uint8_t      *file_data;
+  char         *cmd_file;
 } target_options_t;
 
 typedef struct

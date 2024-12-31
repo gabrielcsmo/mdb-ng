@@ -6,10 +6,15 @@
 
 /*- Includes ----------------------------------------------------------------*/
 #include <cstdint>
+#include <vector>
+#include <string>
+
+using namespace std;
 
 /*- Prototypes --------------------------------------------------------------*/
 void sha256(uint8_t *data, int size, uint8_t *hash);
 uint32_t crc32(uint8_t *data, int size);
+vector<vector<string>> parse_command_file(const char *filename);
 
 #endif // _UTILS_H_
 

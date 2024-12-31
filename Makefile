@@ -2,8 +2,8 @@ COMPILER ?= g++
 UNAME ?= $(shell uname)
 
 SRCS = \
+  src/main.cpp \
   src/dap.cpp \
-  src/edbg.cpp \
   src/utils.cpp \
   src/target.cpp \
   src/target_atmel_cm0p.cpp \

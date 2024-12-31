@@ -5,7 +5,12 @@
 #include <cstring>
 #include <cstdlib>
 #include <cstdint>
+#include <iostream>
+#include <vector>
+#include <string>
 #include "utils.h"
+
+using namespace std;
 
 // Note: SHA-256 is a direct naive implementation of the FIPS PUB 180-4
 
@@ -160,3 +165,10 @@ uint32_t crc32(uint8_t *data, int size)
   return crc;
 }
 
+
+vector<vector<string>> parse_command_file(const char *filename)
+{
+  vector<vector<std::string>> v;
+  v.push_back({"ok"});
+  return v;
+}

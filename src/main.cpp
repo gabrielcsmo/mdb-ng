@@ -21,6 +21,9 @@
 #include "edbg.h"
 #include "dap.h"
 #include "dbg.h"
+#include "utils.h"
+
+#include <iostream>
 
 /*- Definitions -------------------------------------------------------------*/
 #define MAX_DEBUGGERS     20
@@ -50,10 +53,11 @@ static const struct option long_options[] =
   { "offset",    required_argument,  0, 'o' },
   { "size",      required_argument,  0, 'z' },
   { "fuse",      required_argument,  0, 'F' },
+  { "cmdfile",   required_argument,  0, 'C' },
   { 0, 0, 0, 0 }
 };
 
-static const char *short_options = "hbd:x:epvkurf:t:ls:c:o:z:F:";
+static const char *short_options = "hbd:x:epvkurf:t:ls:c:o:z:F:C:";
 
 /*- Variables ---------------------------------------------------------------*/
 static char *g_serial = NULL;
@@ -78,7 +82,8 @@ static target_options_t g_target_options =
   .size         = -1,
   .fuse_cmd     = NULL,
   .file_size    = -1,
-  .file_data    = NULL
+  .file_data    = NULL,
+  .cmd_file     = NULL
 };
 
 /*- Implementations ---------------------------------------------------------*/
@@ -392,6 +397,7 @@ static void print_help(char *name)
       "  -o, --offset <offset>      offset for the operation\n"
       "  -z, --size <size>          size for the operation\n"
       "  -F, --fuse <options>       operations on the fuses (use '-F help' for details)\n"
+      "  -C, --cmdfile <file>       text file that contains commands for the debugger\n"
     );
   }
 
@@ -460,6 +466,7 @@ static void parse_command_line(int argc, char **argv)
       case 'o': g_target_options.offset = (uint32_t)strtoul(optarg, NULL, 0); break;
       case 'z': g_target_options.size = (uint32_t)strtoul(optarg, NULL, 0); break;
       case 'F': g_target_options.fuse_cmd = optarg; break;
+      case 'C': g_target_options.cmd_file = optarg; break;
       default: exit(1); break;
     }
   }
@@ -515,6 +522,16 @@ int main(int argc, char **argv)
     }
 
     return 0;
+  }
+
+  if (g_target_options.cmd_file)
+  {
+    std::cout << "Using command file: " << g_target_options.cmd_file << std::endl;
+    auto ret = parse_command_file(g_target_options.cmd_file);
+    for (auto v: ret)
+      for (auto s : v)
+        std::cout << s << std::endl;
+    exit(0);
   }
 
   if (NULL == g_target)
