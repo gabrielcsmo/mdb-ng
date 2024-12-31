@@ -528,9 +528,13 @@ int main(int argc, char **argv)
   {
     std::cout << "Using command file: " << g_target_options.cmd_file << std::endl;
     auto ret = parse_command_file(g_target_options.cmd_file);
-    for (auto v: ret)
-      for (auto s : v)
-        std::cout << s << std::endl;
+    for (auto v: ret) {
+      cout << "[";
+      for (auto s : v) {
+        std::cout << "\"" << s << "\" ";
+      }
+      cout << "]\n";
+    }
     exit(0);
   }
 

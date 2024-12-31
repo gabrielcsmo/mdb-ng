@@ -6,9 +6,11 @@
 #include <cstdlib>
 #include <cstdint>
 #include <iostream>
+#include <fstream>
 #include <vector>
 #include <string>
 #include "utils.h"
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -165,10 +167,50 @@ uint32_t crc32(uint8_t *data, int size)
   return crc;
 }
 
+static inline void ltrim(std::string &s) {
+    s.erase(s.begin(), std::find_if(s.begin(), s.end(), [](unsigned char ch) {
+        return !std::isspace(ch);
+    }));
+}
 
 vector<vector<string>> parse_command_file(const char *filename)
 {
-  vector<vector<std::string>> v;
-  v.push_back({"ok"});
-  return v;
+  vector<vector<std::string>> ret;
+  ifstream file(filename);
+  string line;
+
+  if (file.is_open()) {
+    while(getline(file, line)) {
+      stringstream ss(line); 
+      string tok;
+      vector<string> command;
+
+       /* replace tabs with spaces */
+      replace(begin(line), end(line), "\t", " ");
+
+      ltrim(line);
+
+      /* skip comment lines */
+      if (line.starts_with("#")
+          || line.starts_with(";")
+          || line.starts_with("//")) {
+        cout << "Skipped comment: " << line << endl;
+        continue;
+
+      }
+
+      while (getline(ss, tok, ' ')) {
+        /* skip empty tokens resulted from multiple spaces separators */
+        if (tok.empty())
+          continue;
+        command.push_back(tok);
+      }
+      ret.push_back(command);
+    }
+  } else {
+    cerr << "Unable to open file: " << filename << endl;
+    exit(-1);
+  }
+
+  return ret;
 }
